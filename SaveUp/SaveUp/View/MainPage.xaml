@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SaveUp.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="Green" Padding="24" CornerRadius="0">
+            <Label Text="Save Up!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label Text='Sie können hier eintragen wie viel Geld Sie ausgegeben haben und einen Budget für sich selber erstellen. Falls Sie schon Einträge haben und Ihre Einträge sehen wollen, können Sie auf "Einträge" klicken!' FontSize="16" Padding="30,0,30,0"/>
+        <Entry Placeholder="Eintrag" Text="{Binding Eintrag}"/>
+        <Entry Text="{Binding Anzahl}" Keyboard="Numeric"/>
+        <Entry Placeholder="Detail" Text="{Binding Detail}"/>
+        <Button Text="Einfügen" Command="{Binding Einfügen}"/>
+        <Button Text="Einträge" Command="{Binding Einträge}"/>
+    </StackLayout>
+
+</ContentPage>

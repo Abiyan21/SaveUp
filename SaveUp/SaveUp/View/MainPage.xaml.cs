@@ -5,8 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
-namespace SaveUp
+
+namespace SaveUp.View
 {
     public partial class MainPage : ContentPage
     {
