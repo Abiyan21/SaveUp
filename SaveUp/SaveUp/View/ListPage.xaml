@@ -8,11 +8,11 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <ListView ItemsSource="{Binding LW}"
+            <ListView ItemsSource="{Binding Data}"
                       Footer="">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Geld}" Detail="{Binding Detail}"/>
+                        <TextCell Text="{Binding Geld,StringFormat='-{0:N}'}" Detail="{Binding Detail}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

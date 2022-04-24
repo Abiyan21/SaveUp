@@ -20,12 +20,13 @@ namespace SaveUp.ViewModel
             get { return _mainModels; }
             set { _mainModels = value; OnPropertyChanged(); }
         }
-        public string Eintrag { get; set; }
         public float Geld { get; set; }
         public string Detail { get; set; }
         public string Datum { get; set; }
-
-        private string message;
+        public string message {
+            get { return message; }
+            set { message = value; OnPropertyChanged(); }
+        }
 
         public Command Einfügen
         {
@@ -34,29 +35,27 @@ namespace SaveUp.ViewModel
                 return new Command(() =>
                 {
                     // Data ins Json
-                    async Task GetTaskAsync()
-                    {
+                    
 
-                    }
                 });
             }
         }
        
-                public Command Einträge
+        public Command Einträge
+        {
+            get
+            {
+                return new Command( () =>
                 {
-                    get
-                    {
-                        return new Command( () =>
-                        {
-                            OpenListPage();
-                        });
-                    }
-                }
+                    OpenListPage();
+                });
+            }
+        }
         
         async void OpenListPage()
         {
             ListPageVM lpvm = new ListPageVM();
-            await Application.Current.MainPage.Navigation.PushAsync(new ListPage(lpvm));
+            await Application.Current.MainPage.Navigation.PushAsync(new ListPage());
         }
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
