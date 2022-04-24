@@ -1,0 +1,15 @@
+[
+  {
+    "Geld": 500.00,
+    "Detail": "Kaffee"
+  },
+  {
+    "Geld": 250.00,
+    "Detail": "Creme"
+  },
+  {
+    "Geld": 100.00,
+    "Detail": "Yogurt"
+  }
+
+]

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SaveUp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,10 @@ namespace SaveUp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListPage : ContentPage
     {
-        public ListPage()
+        public ListPage(object ListPageVM)
         {
             InitializeComponent();
+            BindingContext = ListPageVM;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SaveUp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,5 +17,11 @@ namespace SaveUp.View
         {
             InitializeComponent();
         }
+        /*
+        async void NavigationButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ListPage(ListPageVM));
+        }
+        */
     }
 }
