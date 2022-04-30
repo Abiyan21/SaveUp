@@ -12,10 +12,11 @@
                       Footer="">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Geld,StringFormat='-{0:N}'}" Detail="{Binding Detail}"/>
+                        <TextCell Text="{Binding Geld,StringFormat='-{0:N} CHF'}" Detail="{Binding Datum}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Label Text="{Binding total}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -16,8 +16,6 @@
         <Entry Placeholder="Detail" Text="{Binding Detail}"/>
         <Button Text="Einfügen" Command="{Binding Einfügen}"/>
         <Button Text="Einträge" Command="{Binding Einträge}"/>
-        <Label Text="{Binding Message}"
-               FontSize="40"/>
     </StackLayout>
 
 </ContentPage>
