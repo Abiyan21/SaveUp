@@ -13,6 +13,7 @@ using System.Reflection;
 using System.IO;
 using Newtonsoft.Json;
 
+
 namespace SaveUp.ViewModel
 {
     public class MainPageVM : INotifyPropertyChanged
@@ -59,20 +60,25 @@ namespace SaveUp.ViewModel
             {
                 return new Command(() =>
                 {
+                    _mainModels.Clear();
+                    var file = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "eintraege.json");
+                    // Data ins Json
+                    var json = File.ReadAllText(file);
+                    List<MainModel> dataList = JsonConvert.DeserializeObject<List<MainModel>>(json);
+                    var data = new ObservableCollection<MainModel>(dataList);
+
+                    _mainModels = data;
+                     
+                    Datum = DateTime.Now.ToString("dd.mm.yyyy");
+                    _mainModels.Add(DModel);
+
                     //var assembly = typeof(ListPageVM).GetTypeInfo().Assembly;
                     //FileStream stream = new FileStream("SaveUp.Resources.eintraege.json", FileMode.OpenOrCreate, FileAccess.Write);
                     //Stream stream = assembly.GetManifestResourceStream("SaveUp.Resources.eintraege.json");
-                 
-                    Datum = DateTime.Now.ToString("dd/mm/yyyy");
-                    _mainModels.Add(DModel);
 
-                    var file = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "eintraege.json");
-                    if (!File.Exists(file))
-                    {
-                        File.Create(file);
-                    }
-                        string data = JsonConvert.SerializeObject(_mainModels);
-                        File.WriteAllText(file,data);
+                        string input = JsonConvert.SerializeObject(_mainModels);
+                        File.WriteAllText(file,input);
+
                 });
             }
         }

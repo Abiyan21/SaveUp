@@ -26,6 +26,9 @@ namespace SaveUp.ViewModel
         {
             //var assembly = typeof(ListPageVM).GetTypeInfo().Assembly;
             //Stream stream = assembly.GetManifestResourceStream(Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "eintraege.json"/*"SaveUp.Resources.eintraege.json"*/));
+
+            var file = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "eintraege.json");
+
             /*using (var reader = new StreamReader(stream))
             {
                 var json = reader.ReadToEnd();
@@ -34,8 +37,7 @@ namespace SaveUp.ViewModel
                 data = new ObservableCollection<MainModel>(dataList);
             }
             */
-            var file = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "eintraege.json");
-            
+
             var json = File.ReadAllText(file);
             List<MainModel> dataList = JsonConvert.DeserializeObject<List<MainModel>>(json);
             data = new ObservableCollection<MainModel>(dataList);
