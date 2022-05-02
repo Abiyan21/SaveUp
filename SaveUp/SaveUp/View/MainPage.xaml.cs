@@ -17,11 +17,5 @@ namespace SaveUp.View
         {
             InitializeComponent();
         }
-        /*
-        async void NavigationButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ListPage(ListPageVM));
-        }
-        */
     }
 }

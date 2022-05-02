@@ -24,12 +24,16 @@ namespace SaveUp.ViewModel
         }
         public ListPageVM()
         {
-            //var assembly = typeof(ListPageVM).GetTypeInfo().Assembly;
-            //Stream stream = assembly.GetManifestResourceStream(Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "eintraege.json"/*"SaveUp.Resources.eintraege.json"*/));
-
             var file = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "eintraege.json");
+            var json = File.ReadAllText(file);
+            List<MainModel> dataList = JsonConvert.DeserializeObject<List<MainModel>>(json);
+            data = new ObservableCollection<MainModel>(dataList);
 
-            /*using (var reader = new StreamReader(stream))
+            /*
+            var assembly = typeof(ListPageVM).GetTypeInfo().Assembly;
+            Stream stream = assembly.GetManifestResourceStream("SaveUp.Resources.eintraege.json"));
+
+            using (var reader = new StreamReader(stream))
             {
                 var json = reader.ReadToEnd();
 
@@ -37,11 +41,6 @@ namespace SaveUp.ViewModel
                 data = new ObservableCollection<MainModel>(dataList);
             }
             */
-
-            var json = File.ReadAllText(file);
-            List<MainModel> dataList = JsonConvert.DeserializeObject<List<MainModel>>(json);
-            data = new ObservableCollection<MainModel>(dataList);
-
         }
             //JObject obj = JObject.Parse("SaveUp.eintraege.json");
     
