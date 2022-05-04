@@ -124,10 +124,14 @@ namespace SaveUp.ViewModel
             //Stream stream = assembly.GetManifestResourceStream("SaveUp.Resources.eintraege.json");
         }
 
-        void DeleteList()
+        async void DeleteList()
         {
-            var file = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "eintraege.json");
-            File.Create(file).Dispose();
+            var choice = await App.Current.MainPage.DisplayAlert("Achtung!", "Sind Sie sicher, dass Sie die Liste löschen wollen?", "Ja", "Nein");
+            if(choice)
+            {
+                var file = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "eintraege.json");
+                File.Create(file).Dispose();
+            }
         }
     }
 }
