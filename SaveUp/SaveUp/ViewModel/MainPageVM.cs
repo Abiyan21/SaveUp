@@ -104,27 +104,19 @@ namespace SaveUp.ViewModel
         {
             _mainModels.Clear();
             var file = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "eintraege.json");
-            if(new FileInfo(file).Length == 0)
-            {
-                Datum = DateTime.Now.ToString("dd.MM.yyyy");
-                _mainModels.Add(DModel);
-
-                string input = JsonConvert.SerializeObject(_mainModels);
-                File.WriteAllText(file, input);
-            }
-            else
+            if(new FileInfo(file).Length > 0)
             {
                 var json = File.ReadAllText(file);
                 List<MainModel> dataList = JsonConvert.DeserializeObject<List<MainModel>>(json);
                 var data = new ObservableCollection<MainModel>(dataList);
                 _mainModels = data;
-
-                Datum = DateTime.Now.ToString("dd.MM.yyyy");
-                _mainModels.Add(DModel);
-
-                string input = JsonConvert.SerializeObject(_mainModels);
-                File.WriteAllText(file, input);
             }
+
+            Datum = DateTime.Now.ToString("dd.MM.yyyy");
+            _mainModels.Add(DModel);
+
+            string input = JsonConvert.SerializeObject(_mainModels);
+            File.WriteAllText(file, input);
 
 
             //var assembly = typeof(ListPageVM).GetTypeInfo().Assembly;
