@@ -11,11 +11,11 @@
         <Frame BackgroundColor="Green" Padding="24" CornerRadius="0">
             <Label Text="Save Up!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
-        <Label Text='Sie können hier eintragen wie viel Geld Sie ausgegeben haben und einen Budget für sich selber erstellen. Falls Sie schon Einträge haben und Ihre Einträge sehen wollen, können Sie auf "Einträge" klicken!' FontSize="16" Padding="30,0,30,0"/>
+        <Label Text='Sie können hier eingeben, wie viel Geld Sie gespart haben.' FontSize="16" Padding="30,0,30,0"/>
         <Entry Text="{Binding Geld}" Keyboard="Numeric"/>
         <Entry Placeholder="Detail" Text="{Binding Detail}"/>
-        <Button Text="Einfügen" Command="{Binding Einfügen}"/>
-        <Button Text="Einträge" Command="{Binding Einträge}"/>
+        <Button Text="Einfügen" Command="{Binding Einfügen}" Margin="10" BackgroundColor="Transparent" BorderColor="Silver" BorderWidth="1" BorderRadius="2" TextColor="Gray"/>
+        <Button Text="Einträge" Command="{Binding Einträge}" Margin="10" BackgroundColor="Transparent" BorderColor="Silver" BorderWidth="1" BorderRadius="2" TextColor="Gray"/>
     </StackLayout>
 
 </ContentPage>

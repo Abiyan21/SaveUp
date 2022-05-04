@@ -12,7 +12,18 @@
                       Footer="">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Geld,StringFormat='-{0:N} CHF'}" Detail="{Binding Datum}"/>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Geld}"/>
+                                <Label Text="{Binding Detail}" Grid.Column="1"/>
+                                <Label Text="{Binding Datum}" Grid.Column="2"/>
+                            </Grid>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

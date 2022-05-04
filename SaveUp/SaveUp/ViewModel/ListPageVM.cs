@@ -13,7 +13,7 @@ using Newtonsoft.Json.Linq;
 
 namespace SaveUp.ViewModel
 {
-    public class ListPageVM : INotifyPropertyChanged
+    public class ListPageVM : ViewModelBase
     {
 
         private ObservableCollection<MainModel> data;
@@ -43,13 +43,6 @@ namespace SaveUp.ViewModel
             */
         }
             //JObject obj = JObject.Parse("SaveUp.eintraege.json");
-    
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
     }
 }
