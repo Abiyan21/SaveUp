@@ -26,8 +26,11 @@ namespace SaveUp.ViewModel
         {
             var file = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "eintraege.json");
             var json = File.ReadAllText(file);
+
             List<MainModel> dataList = JsonConvert.DeserializeObject<List<MainModel>>(json);
             data = new ObservableCollection<MainModel>(dataList);
+            
+
 
             /*
             var assembly = typeof(ListPageVM).GetTypeInfo().Assembly;
@@ -42,7 +45,5 @@ namespace SaveUp.ViewModel
             }
             */
         }
-            //JObject obj = JObject.Parse("SaveUp.eintraege.json");
-
     }
 }

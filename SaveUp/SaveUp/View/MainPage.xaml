@@ -16,6 +16,7 @@
         <Entry Placeholder="Detail" Text="{Binding Detail}"/>
         <Button Text="Einfügen" Command="{Binding Einfügen}" Margin="10" BackgroundColor="Transparent" BorderColor="Silver" BorderWidth="1" BorderRadius="2" TextColor="Gray"/>
         <Button Text="Einträge" Command="{Binding Einträge}" Margin="10" BackgroundColor="Transparent" BorderColor="Silver" BorderWidth="1" BorderRadius="2" TextColor="Gray"/>
+        <Button Text="Einträge" Command="{Binding Delete}" Margin="10" BackgroundColor="Transparent" BorderColor="Silver" BorderWidth="1" BorderRadius="2" TextColor="Gray"/>
     </StackLayout>
 
 </ContentPage>
