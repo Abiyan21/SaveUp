@@ -2,21 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SaveUp.View.MainPage"
-             xmlns:viewModel="clr-namespace:SaveUp.ViewModel">
+             xmlns:viewModel="clr-namespace:SaveUp.ViewModel"
+             BackgroundColor="#212121">
     <ContentPage.BindingContext>
         <viewModel:MainPageVM/>
     </ContentPage.BindingContext>
 
     <StackLayout>
-        <Frame BackgroundColor="Green" Padding="24" CornerRadius="0">
-            <Label Text="Save Up!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text='Sie können hier eingeben, wie viel Geld Sie gespart haben.' FontSize="16" Padding="30,0,30,0"/>
-        <Entry Text="{Binding Geld}" Keyboard="Numeric"/>
-        <Entry Placeholder="Detail" Text="{Binding Detail}"/>
-        <Button Text="Einfügen" Command="{Binding Einfügen}" Margin="10" BackgroundColor="Transparent" BorderColor="Silver" BorderWidth="1" BorderRadius="2" TextColor="Gray"/>
-        <Button Text="Einträge" Command="{Binding Einträge}" Margin="10" BackgroundColor="Transparent" BorderColor="Silver" BorderWidth="1" BorderRadius="2" TextColor="Gray"/>
-        <Button Text="Einträge" Command="{Binding Delete}" Margin="10" BackgroundColor="Transparent" BorderColor="Silver" BorderWidth="1" BorderRadius="2" TextColor="Gray"/>
+        <Label Text="Save Up!" Style="{StaticResource Title}"/>
+        <Label Text='Sie können hier eingeben, wie viel Geld Sie gespart haben.' Style="{StaticResource Text}"/>
+        <Entry Text="{Binding Geld}" Keyboard="Numeric" Style="{StaticResource EntryF}"/>
+        <Entry Placeholder="Detail" Text="{Binding Detail}" Style="{StaticResource EntryF}"/>
+        <Button Text="Eintragliste" Command="{Binding Einträge}" Style="{StaticResource CButton}"/>
+        <Button Text="Einfügen" Command="{Binding Einfügen}" Style="{StaticResource CButton}"/>
+        <Button Text="Delete" Command="{Binding Delete}" Style="{StaticResource CButton}"/>
     </StackLayout>
 
 </ContentPage>

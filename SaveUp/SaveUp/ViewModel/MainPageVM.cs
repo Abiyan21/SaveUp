@@ -100,7 +100,7 @@ namespace SaveUp.ViewModel
             }
         }
 
-         void AddToList()
+        void AddToList()
         {
             _mainModels.Clear();
             var file = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "eintraege.json");
@@ -117,7 +117,6 @@ namespace SaveUp.ViewModel
 
             string input = JsonConvert.SerializeObject(_mainModels);
             File.WriteAllText(file, input);
-
 
             //var assembly = typeof(ListPageVM).GetTypeInfo().Assembly;
             //FileStream stream = new FileStream("SaveUp.Resources.eintraege.json", FileMode.OpenOrCreate, FileAccess.Write);

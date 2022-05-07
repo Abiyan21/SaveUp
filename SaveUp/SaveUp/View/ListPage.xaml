@@ -2,32 +2,33 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SaveUp.View.ListPage"
-             xmlns:viewModel="clr-namespace:SaveUp.ViewModel">
+             xmlns:viewModel="clr-namespace:SaveUp.ViewModel"
+             BackgroundColor="#212121">
     <ContentPage.BindingContext>
         <viewModel:ListPageVM/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
             <ListView ItemsSource="{Binding Data}"
-                      Footer="">
+                      HasUnevenRows="True"
+                      >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Label Text="{Binding Geld}"/>
-                                <Label Text="{Binding Detail}" Grid.Column="1"/>
-                                <Label Text="{Binding Datum}" Grid.Column="2"/>
-                            </Grid>
-                        </ViewCell>
+                            <ViewCell>
+                            <Grid BackgroundColor="#CA1F40">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Geld, StringFormat='Fr. {0:N}'}" Grid.Column="0" Style="{StaticResource Text}"/>
+                                    <Label Text="{Binding Detail}" Grid.Column="1" Style="{StaticResource Text}"/>
+                                    <Label Text="{Binding Datum}" Grid.Column="2" Style="{StaticResource Text}"/>
+                                </Grid>
+                            </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Label Text="{Binding total}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
