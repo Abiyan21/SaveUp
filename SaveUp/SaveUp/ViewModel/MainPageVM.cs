@@ -18,16 +18,15 @@ namespace SaveUp.ViewModel
 {
     public class MainPageVM : ViewModelBase
     {
+        /// <summary>
+        /// Variablen
+        /// </summary>
         private MainModel DModel;
         private ObservableCollection<MainModel> _mainModels = new ObservableCollection<MainModel>();
         public ObservableCollection<MainModel> MainModels
         {
             get { return _mainModels; }
             set { _mainModels = value; OnPropertyChanged(); }
-        }
-        public MainPageVM()
-        {
-            DModel = new MainModel();
         }
         public float Geld
         {
@@ -53,7 +52,17 @@ namespace SaveUp.ViewModel
                 DModel.Datum = value; OnPropertyChanged();
             }
         }
+        /// <summary>
+        /// Constructor (Macht ein Object aus MainModel)
+        /// </summary>
+        public MainPageVM()
+        {
+            DModel = new MainModel();
+        }
 
+        /// <summary>
+        /// Einfügen Command (Ruft die AddToList Methode)
+        /// </summary>
         public Command Einfügen
         {
             get
@@ -65,6 +74,9 @@ namespace SaveUp.ViewModel
             }
         }
        
+        /// <summary>
+        /// Einträge Command (Ruft die OpenListPage Methode)
+        /// </summary>
         public Command Einträge
         {
             get
@@ -76,6 +88,9 @@ namespace SaveUp.ViewModel
             }
         }
 
+        /// <summary>
+        /// Delete Command (Ruft die DeleteList Methode)
+        /// </summary>
         public Command Delete
         {
             get
@@ -87,7 +102,10 @@ namespace SaveUp.ViewModel
             }
         }
         
-        async void OpenListPage()
+        /// <summary>
+        /// OpenListPage Methode. Navigiert den Benutzer zum ListPage.
+        /// </summary>
+        private async void OpenListPage()
         {
             var file = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "eintraege.json");
             if (new FileInfo(file).Length == 0)
@@ -100,7 +118,10 @@ namespace SaveUp.ViewModel
             }
         }
 
-        void AddToList()
+        /// <summary>
+        /// AddToList Methode. Fügt die EintragDaten in die Datei ein.
+        /// </summary>
+        private void AddToList()
         {
             _mainModels.Clear();
             var file = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "eintraege.json");
@@ -123,7 +144,10 @@ namespace SaveUp.ViewModel
             //Stream stream = assembly.GetManifestResourceStream("SaveUp.Resources.eintraege.json");
         }
 
-        async void DeleteList()
+        /// <summary>
+        /// DeleteList Methode. Löscht die Datei und erstellt eine neue leere Datei.
+        /// </summary>
+        private async void DeleteList()
         {
             var choice = await App.Current.MainPage.DisplayAlert("Achtung!", "Sind Sie sicher, dass Sie die Liste löschen wollen?", "Ja", "Nein");
             if(choice)

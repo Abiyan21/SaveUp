@@ -13,9 +13,9 @@
         <Label Text='Sie können hier eingeben, wie viel Geld Sie gespart haben.' Style="{StaticResource Text}"/>
         <Entry Text="{Binding Geld}" Keyboard="Numeric" Style="{StaticResource EntryF}"/>
         <Entry Placeholder="Detail" Text="{Binding Detail}" Style="{StaticResource EntryF}"/>
-        <Button Text="Eintragliste" Command="{Binding Einträge}" Style="{StaticResource CButton}"/>
         <Button Text="Einfügen" Command="{Binding Einfügen}" Style="{StaticResource CButton}"/>
-        <Button Text="Delete" Command="{Binding Delete}" Style="{StaticResource CButton}"/>
+        <Button Text="Eintrag Liste" Command="{Binding Einträge}" Style="{StaticResource CButton}"/>
+        <Button Text="Liste Löschen" Command="{Binding Delete}" Style="{StaticResource CButton}"/>
     </StackLayout>
 
 </ContentPage>

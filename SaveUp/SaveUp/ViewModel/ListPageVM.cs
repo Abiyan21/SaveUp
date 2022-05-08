@@ -15,13 +15,19 @@ namespace SaveUp.ViewModel
 {
     public class ListPageVM : ViewModelBase
     {
-
+        /// <summary>
+        /// Variable
+        /// </summary>
         private ObservableCollection<MainModel> data;
         public ObservableCollection<MainModel> Data
         {
             get { return data; }
             set { data = value; OnPropertyChanged(); }
         }
+
+        /// <summary>
+        /// Constructor (Liest die Daten von der Datei aus)
+        /// </summary>
         public ListPageVM()
         {
             var file = Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "eintraege.json");
@@ -29,21 +35,6 @@ namespace SaveUp.ViewModel
 
             List<MainModel> dataList = JsonConvert.DeserializeObject<List<MainModel>>(json);
             data = new ObservableCollection<MainModel>(dataList);
-            
-
-
-            /*
-            var assembly = typeof(ListPageVM).GetTypeInfo().Assembly;
-            Stream stream = assembly.GetManifestResourceStream("SaveUp.Resources.eintraege.json"));
-
-            using (var reader = new StreamReader(stream))
-            {
-                var json = reader.ReadToEnd();
-
-                List<MainModel> dataList = JsonConvert.DeserializeObject<List<MainModel>>(json);
-                data = new ObservableCollection<MainModel>(dataList);
-            }
-            */
         }
     }
 }
