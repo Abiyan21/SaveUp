@@ -16655,13 +16655,16 @@ namespace SaveUp.Droid
 			public const int preference_list_divider_material = 2131165324;
 			
 			// aapt resource value: 0x7F07008D
-			public const int test_custom_background = 2131165325;
+			public const int saveup = 2131165325;
 			
 			// aapt resource value: 0x7F07008E
-			public const int tooltip_frame_dark = 2131165326;
+			public const int test_custom_background = 2131165326;
 			
 			// aapt resource value: 0x7F07008F
-			public const int tooltip_frame_light = 2131165327;
+			public const int tooltip_frame_dark = 2131165327;
+			
+			// aapt resource value: 0x7F070090
+			public const int tooltip_frame_light = 2131165328;
 			
 			static Drawable()
 			{
@@ -18788,6 +18791,9 @@ namespace SaveUp.Droid
 			
 			// aapt resource value: 0x7F0C0002
 			public const int launcher_foreground = 2131492866;
+			
+			// aapt resource value: 0x7F0C0003
+			public const int saveup = 2131492867;
 			
 			static Mipmap()
 			{
